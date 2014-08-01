@@ -48,12 +48,12 @@
 	<form id="reset_board" action="" method="GET">
 		<fieldset>
 			<legend>Reset the board</legend>
-			<input name="board_rows" id="board_rows" type="number" value="9" min="1" max="9">
-			<input name="board_columns" id="board_columns" type="number" value="10" min="1" max="9">
+			<input name="board_rows" id="board_rows" type="number" value="9" min="1" max="10">
+			<input name="board_columns" id="board_columns" type="number" value="10" min="1" max="10">
 			<input id="board_submit" type="submit" value="Reset">
 		</fieldset>
 	</form>
-	<a href="javascript:create_board(9, 10);">Clear the board</a>
+
 	<div id="board_container"></div>
 	<div id="options"></div>
 
