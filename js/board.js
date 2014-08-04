@@ -7,14 +7,17 @@ create_board(9, 10);
 document.getElementById('board_submit').onclick = function() {
 	event.preventDefault();
 
-	create_board(document.getElementById('board_rows').value, document.getElementById('board_columns').value);
+	create_board(document.getElementById('board_rows').value, document.getElementById('board_columns').value, document.getElementById('default_tile').value);
 }
 
 
 /**
 	creates the board based on the tile set
 */
-function create_board(rows, columns) {
+function create_board(rows, columns, default_tile) {
+	default_tile = typeof default_tile !== 'undefined' ? default_tile : tiles[0];
+
+
 	var board_html = '<div id="board">';
 
 	for (var i=0; i < rows; i++) {
@@ -22,7 +25,7 @@ function create_board(rows, columns) {
 
 		for (var j=0; j < columns; j++) {
 			board_html += '<span id="contents_'+i+'_'+j+'">';
-				board_html += '<img id="tile_'+i+'_'+j+'" class="tiles placed concrete" src="img/tile_set/concrete_tile.png" onclick="select_tile('+i+','+j+');"/>';
+				board_html += '<img id="tile_'+i+'_'+j+'" class="tiles placed '+default_tile+'" src="img/tile_set/'+default_tile+'_tile.png" onclick="select_tile('+i+','+j+');"/>';
 			board_html += '</span>';
 
 		}
@@ -30,6 +33,12 @@ function create_board(rows, columns) {
 	}
 	board_html += '</div>';
 
+	var options_html = '';
+	for(var i = 0; i < tiles.length; i++) {
+		options_html += '<option value="'+tiles[i]+'">'+tiles[i]+'</option>';
+	}
+
+	document.getElementById('default_tile').innerHTML = options_html;
 	document.getElementById('board_container').innerHTML = board_html;
 }
 

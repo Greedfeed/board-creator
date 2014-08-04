@@ -3,7 +3,7 @@
 
 <style>
 	#reset_board {
-		width: 225px;
+		width: 320px;
 	}
 
 	#board {
@@ -50,6 +50,8 @@
 			<legend>Reset the board</legend>
 			<input name="board_rows" id="board_rows" type="number" value="9" min="1" max="10">
 			<input name="board_columns" id="board_columns" type="number" value="10" min="1" max="10">
+			<select name="default_tile" id="default_tile" type="number" value="10" min="1" max="10">
+			</select>
 			<input id="board_submit" type="submit" value="Reset">
 		</fieldset>
 	</form>
